@@ -3,23 +3,23 @@ create database SWShipsManage;
 use SWShipsManage;
 
 create table Pilotos(
-    Id int PRIMARY KEY,
+    Id int IDENTITY(1,1) PRIMARY KEY,
     Name varchar(100) NOT NULL,
 );
 
 create table NavesEspaciais(
-    Id int PRIMARY KEY,
+    Id int IDENTITY(1,1) PRIMARY KEY,
     Name varchar(100) NOT NULL,
     Model varchar(100) NOT NULL,
 );
 
 create table Planetas(
-    Id int PRIMARY KEY,
+    Id int IDENTITY(1,1) PRIMARY KEY,
     Name varchar(100) NOT NULL,
 );
 
 create table PilotoNaves(
-    Id int PRIMARY KEY,
+    Id int IDENTITY(1,1) PRIMARY KEY,
     IdPiloto int NOT NULL,
     IdNave int NOT NULL,
     IdPlaneta int NOT NULL,
@@ -27,9 +27,10 @@ create table PilotoNaves(
 );
 
 create table HistoricoViagens(
-    Id int PRIMARY KEY,
+    Id int PRIMARY KEY IDENTITY(1,1),
     IdPiloto int NOT NULL,
     IdPlaneta int NOT NULL,
+    IdNave int NOT NULL,
     dtSaida DateTime NOT NULL,
     dtChegada DateTime NOT NULL
 );
@@ -39,11 +40,5 @@ ALTER TABLE PilotoNaves ADD CONSTRAINT viagem_to_nave FOREIGN KEY (IdNave) REFER
 ALTER TABLE PilotoNaves ADD CONSTRAINT viagem_to_planeta FOREIGN KEY (IdPlaneta) REFERENCES Planetas(Id);
 
 ALTER TABLE HistoricoViagens ADD CONSTRAINT history_to_piloto FOREIGN KEY (IdPiloto) REFERENCES Pilotos(Id);
+ALTER TABLE HistoricoViagens ADD CONSTRAINT history_to_nave FOREIGN KEY (IdNave) REFERENCES NavesEspaciais(Id);
 ALTER TABLE HistoricoViagens ADD CONSTRAINT history_to_planeta FOREIGN KEY (IdPlaneta) REFERENCES Planetas(Id);
-
-
-
-
-
-
-
