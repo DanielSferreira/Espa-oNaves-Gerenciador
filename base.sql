@@ -39,7 +39,6 @@ ALTER TABLE PilotoNaves ADD CONSTRAINT viagem_to_nave FOREIGN KEY (IdNave) REFER
 ALTER TABLE PilotoNaves ADD CONSTRAINT viagem_to_planeta FOREIGN KEY (IdPlaneta) REFERENCES Planetas(Id);
 
 ALTER TABLE HistoricoViagens ADD CONSTRAINT history_to_piloto FOREIGN KEY (IdPiloto) REFERENCES Pilotos(Id);
-ALTER TABLE HistoricoViagens ADD CONSTRAINT history_to_nave FOREIGN KEY (IdNave) REFERENCES NavesEspaciais(Id);
 ALTER TABLE HistoricoViagens ADD CONSTRAINT history_to_planeta FOREIGN KEY (IdPlaneta) REFERENCES Planetas(Id);
 
 

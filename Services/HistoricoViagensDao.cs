@@ -22,9 +22,9 @@ namespace StarWarsManageShip.Services
                     Id = reader.GetInt32(0),
                     IdPiloto = reader.GetInt32(1),
                     IdNave = reader.GetInt32(2),
-                    dtSaida = reader.GetDateTime(3),
-                    dtChegada = reader.GetDateTime(4),
-                    IdPlaneta = reader.GetInt32(5)
+                    IdPlaneta = reader.GetInt32(3),
+                    dtSaida = reader.GetDateTime(4),
+                    dtChegada = reader.GetDateTime(5)
                 });
 
             reader.Close();
@@ -34,7 +34,9 @@ namespace StarWarsManageShip.Services
 
         public bool insert(int idPiloto, int idNave, int IdPlaneta, DateTime dataSaida, DateTime dataChegada = new DateTime())
         {
-            var sql = $"insert into HistoricoViagens (idPiloto, idNave, dtSaida, dtChegada, IdPlaneta) values ({idPiloto}, {idNave}, '{dataSaida}', '{dataChegada}', {IdPlaneta});";
+            var dtsaida = dataSaida.ToString("yyyy-MM-dd HH:mm:ss").Replace(" ","T");
+            var dtchegada = dataSaida.ToString("yyyy-MM-dd HH:mm:ss").Replace(" ","T");
+            var sql = $"insert into HistoricoViagens (idPiloto, idNave, dtSaida, dtChegada, IdPlaneta) values ({idPiloto}, {idNave}, '{dtsaida}', '{dtchegada}', {IdPlaneta});";
             return ExecuteSql(sql);
         }
         public bool update(int id, DateTime dataChegada)

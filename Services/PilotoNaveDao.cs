@@ -24,8 +24,8 @@ namespace StarWarsManageShip.Services
                         Id = reader.GetInt32(0),
                         IdPiloto = reader.GetInt32(1),
                         IdNave = reader.GetInt32(2),
-                        IdPlaneta = reader.GetInt32(4),
-                        Autorizado = reader.GetBoolean(3)
+                        IdPlaneta = reader.GetInt32(3),
+                        Autorizado = reader.GetBoolean(4)
                     });
             }
             finally
@@ -50,8 +50,8 @@ namespace StarWarsManageShip.Services
                         Id = reader.GetInt32(0),
                         IdPiloto = reader.GetInt32(1),
                         IdNave = reader.GetInt32(2),
-                        Autorizado = reader.GetBoolean(3),
-                        IdPlaneta = reader.GetInt32(4),
+                        IdPlaneta = reader.GetInt32(3),
+                        Autorizado = reader.GetBoolean(4),
                     };
             }
             finally
