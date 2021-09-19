@@ -1,0 +1,29 @@
+@model List<StarWarsManageShip.Models.HistoricoDeViagensView>
+@{
+    ViewData["Title"] = "Historico de Viagens";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Pessoa</th>
+            <th scope="col">Nave</th>
+            <th scope="col">Data Saída</th>
+            <th scope="col">Data Chegada</th>
+            <th scope="col">Destino</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td> @item.piloto</td>
+                <td>@item.nave</td>
+                <td>@item.dtSaida</td>
+                <td>@item.dtChegada</td>
+                <td>@item.planeta</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+@model List<StarWarsManageShip.Models.PilotoNavesView>
+@{
+    ViewData["Title"] = "Marcar Chegada";
+}
+<form action="MarcarNavePilotoChegadaPost" method="post">
+
+    <input type="hidden" name="id">
+    <input type="hidden" name="dtSaida" value="">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nave em curso</th>
+                <th scope="col">Pessoa</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <div class="mb-3 text-left">
+                    <select class="form-control form-control-lg" name="IdNomeString" id="IdNomeString">
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.IdPiloto|@item.Id"> @item.piloto - @item.nave </option>
+                        }
+                    </select>
+                </div>
+            </td>
+            <td>
+                <h4 style="margin-top: 8px;">@DateTime.Now.ToString("HH:mm - dd/MM")</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn btn-primary"> Marcar horario chegada</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
