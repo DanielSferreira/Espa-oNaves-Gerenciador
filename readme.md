@@ -9,7 +9,13 @@ Criei baseado na arquitetura MVC Dotnet.
 
 ## Relações entre Tabelas
 
-- Relações da Tabela **HistoricoViagens**__
+- Relações da Tabela **HistoricoViagens**
+
+----------
+
 ![1](readme/HistoricoViagens.png)
-- Relações da Tabela **PilotoNaves**__
+- Relações da Tabela **PilotoNaves**
+
+----------
+
 ![1](readme/PilotoNaves.png)
